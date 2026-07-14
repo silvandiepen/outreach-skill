@@ -97,7 +97,7 @@ curl -X POST "$BASE/projects/$PROJECT_ID/prospects/$PROSPECT_ID/investigations" 
   }'
 ```
 
-If `discoveredContact` is supplied, Outreach updates the prospect contact and can move a `new` prospect toward researched state.
+If `discoveredContact` is supplied, Outreach updates the prospect contact and can move a `new` prospect toward researched state. Put contact source, channel type, confidence, and caveats in `findings`, `sources`, and prospect `notes`.
 
 ## Plans
 
@@ -113,7 +113,7 @@ Plan step types: `research`, `draft`, `send`, `follow_up`, `note`.
 
 ## Drafts
 
-Prefer persisted drafts for agent work. Drafts start as `proposed`; sending requires explicit approval.
+Prefer persisted drafts for agent work. Drafts start as `proposed`; sending requires explicit approval. Drafts should be ready to send: concrete recipient/contact path, project philosophy, prospect-specific evidence, clear ask, and no unsupported claims.
 
 ```text
 GET /projects/:projectId/drafts

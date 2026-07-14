@@ -15,9 +15,10 @@ Never invent, store, print, or commit API keys. The user must provide the key in
 - Check whether the project already exists before creating it.
 - Log research in Outreach, not only in private notes.
 - For investigations, browse current public sources and record URLs.
+- Treat contact discovery as part of investigations: find a respectful public/professional contact path and log the source.
 - Add prospects only when there is enough evidence to justify fit.
 - Treat prospects as hypotheses based on public signals, not confirmed customers.
-- Create reviewable drafts by default. Do not send email unless the user explicitly says to send.
+- Create ready-to-send, reviewable drafts by default. Do not send email unless the user explicitly says to send.
 - Keep statuses current: `new`, `researched`, `needs_approval`, `sent`, `follow_up_due`, `no_response`.
 - Use `sil@hakobs.com` identity only through existing project settings/templates; do not ask for Resend or Cloudflare credentials.
 
@@ -30,12 +31,14 @@ Never invent, store, print, or commit API keys. The user must provide the key in
 5. Inspect project prospects, templates, plans, drafts, events, settings, inbound emails, and integrations as needed.
 6. Run the startup clarification checklist below when logging/saving behavior is not already clear.
 7. Define the ICP, adjacent ICP, positive signals, disqualifiers, pain triggers, and timing triggers.
-8. Research prospects with current public sources. Read `references/first-customer-research.md` before deep prospect discovery.
-9. For every meaningful finding, add an investigation with summary, findings, sources, and discovered contact if found.
-10. Add or update prospects with contact info, fit score, why-fit, angle, ask, notes, and status.
-11. Create a plan when the work is multi-step or the user asked an agent to run a campaign.
-12. Create drafts for review. Use persisted draft endpoints, not direct send, unless the user explicitly authorizes sending.
-13. End with a concise report: project id, prospects added/updated, investigations logged, drafts created, statuses changed, blockers.
+8. Extract the project philosophy: positioning, values, tone, what the project refuses to do, and the best reason a prospect should care.
+9. Research prospects with current public sources. Read `references/first-customer-research.md` before deep prospect discovery.
+10. For every meaningful finding, add an investigation with summary, findings, sources, discovered contact if found, and contact confidence.
+11. Prefer direct professional email when it is publicly listed for outreach. If not found, use role inbox, contact form, public social profile, or other respectful channel and record the limitation.
+12. Add or update prospects with contact info, fit score, why-fit, angle, ask, notes, and status.
+13. Create a plan when the work is multi-step or the user asked an agent to run a campaign.
+14. Create ready-to-send drafts using project philosophy, prospect details, and cited investigation evidence. Use persisted draft endpoints unless the user explicitly authorizes direct send.
+15. End with a concise report: project id, prospects added/updated, contacts found, investigations logged, drafts created, statuses changed, blockers.
 
 ## Startup Clarification
 
@@ -59,6 +62,7 @@ Ask about:
 - **Logging depth**: minimal source summary, full investigation per prospect, or plan + investigations + drafts.
 - **Draft policy**: create drafts for every qualified prospect, only top prospects, or no drafts.
 - **Send boundary**: default to never send unless explicitly authorized.
+- **Contact policy**: direct public email only, role inbox/contact form acceptable, or social/profile channel acceptable.
 - **Channels**: email only, public community channels, social platforms, partnerships, press, or mixed.
 - **Exclusions**: geographies, industries, competitors, sensitive categories, or contacts to avoid.
 
@@ -68,7 +72,8 @@ Use this default if the user does not answer and reasonable progress is possible
 - Volume: 10 prospects.
 - Save policy: only save prospects with cited public evidence; mention skipped weak leads in the final report, not as prospects.
 - Logging depth: one investigation with sources per saved prospect.
-- Draft policy: create proposed drafts for the top prospects only when a template exists or the user asked for drafts.
+- Contact policy: use public professional email when available; otherwise save the best respectful public channel and note the limitation.
+- Draft policy: create proposed ready-to-send drafts for the top prospects only when a contact path exists and a template/project voice is available.
 - Send boundary: do not send.
 
 Example clarification:
