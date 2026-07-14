@@ -91,6 +91,19 @@ For each accepted prospect:
 4. Create a reviewable draft if requested.
 5. Record blockers when evidence or contact path is weak.
 
+## What To Save
+
+Use the user's requested save policy. If none is provided, default to:
+
+- Save a prospect only when there is at least one cited public signal and a plausible respectful channel.
+- Save an investigation for each saved prospect.
+- Put uncertainty and caveats in `notes`.
+- Do not create a prospect for generic lookalikes with no cited pain/timing signal.
+- Mention skipped weak leads in the final report instead of creating low-quality prospect records.
+- Create proposed drafts only for the strongest matches or when the user explicitly asks for drafts.
+
+If the user wants exhaustive logging, create a plan first and use investigations/events to record weak leads separately from qualified prospects when the API supports that workflow.
+
 ## Final Report Shape
 
 End with:
