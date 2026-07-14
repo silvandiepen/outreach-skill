@@ -23,7 +23,7 @@ Install into your Codex skills directory:
 ```bash
 git clone https://github.com/silvandiepen/outreach-skill.git
 mkdir -p ~/.codex/skills
-cp -R outreach-skill/outreach ~/.codex/skills/outreach
+cp -R outreach-skill$outreach ~/.codex/skills$outreach
 ```
 
 Or, with the Codex skill installer:
@@ -39,11 +39,13 @@ Restart Codex after installing.
 ## Usage
 
 ```text
-/outreach Do investigations for Luys. Here is my Outreach API key: <key>.
+$outreach Do investigations for Luys. Here is my Outreach API key: <key>.
 Find 20 high-fit prospects, log investigations and sources, create draft outreach, but do not send.
 ```
 
 The skill never stores API keys. Provide the key per task or set `OUTREACH_API_KEY` in the runtime environment.
+
+Codex skills are invoked with `$outreach`. A slash command like `/outreach` only works in clients that explicitly map slash commands to skills.
 
 ## Safety Defaults
 

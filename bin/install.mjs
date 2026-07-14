@@ -12,9 +12,9 @@ if (help) {
   console.log(`Install the Outreach Codex skill.
 
 Usage:
-  npx github:silvandiepen/outreach-skill
-  npx github:silvandiepen/outreach-skill -- --force
-  OUTREACH_SKILL_DEST=/path/to/skills npx github:silvandiepen/outreach-skill
+  npx github:silvandiepen$outreach-skill
+  npx github:silvandiepen$outreach-skill -- --force
+  OUTREACH_SKILL_DEST=/path/to/skills npx github:silvandiepen$outreach-skill
 
 Options:
   --force, -f   Replace an existing outreach skill directory.
@@ -50,7 +50,7 @@ cpSync(source, target, { recursive: true });
 
 console.log(`Installed Outreach skill to ${target}`);
 console.log('Restart Codex or start a new session, then use:');
-console.log('/outreach Do outreach for Luys: https://luys.dev. This is my API key: XXXX.');
+console.log('$outreach Do outreach for Luys: https://luys.dev. This is my API key: XXXX.');
 
 function resolveSkillRoot() {
   if (process.env.OUTREACH_SKILL_DEST) return process.env.OUTREACH_SKILL_DEST;

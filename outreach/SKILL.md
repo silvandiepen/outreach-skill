@@ -1,6 +1,6 @@
 ---
 name: outreach
-description: "Use when the user invokes /outreach or asks Codex to manage the Outreach platform at outreach.hakobs.com: create or update outreach projects, research/investigate prospects, find evidence-backed first customers, add prospects, log sources and findings, create plans, create reviewable drafts, update outreach statuses, or use an Outreach API key supplied by the user. This skill does not contain secrets; require the user to provide the API key or set OUTREACH_API_KEY at runtime."
+description: "Use when the user invokes $outreach or asks Codex to manage the Outreach platform at outreach.hakobs.com: create or update outreach projects, research/investigate prospects, find evidence-backed first customers, add prospects, log sources and findings, create plans, create reviewable drafts, update outreach statuses, or use an Outreach API key supplied by the user. This skill does not contain secrets; require the user to provide the API key or set OUTREACH_API_KEY at runtime."
 ---
 
 # Outreach
@@ -39,7 +39,7 @@ Never invent, store, print, or commit API keys. The user must provide the key in
 
 ## Startup Clarification
 
-When the user says something broad like `/outreach Do outreach for Luys` and provides a website, repo, or local folder, first infer what you can, then ask only for missing choices that materially affect what gets written to Outreach.
+When the user says something broad like `$outreach Do outreach for Luys` and provides a website, repo, or local folder, first infer what you can, then ask only for missing choices that materially affect what gets written to Outreach.
 
 Do not ask for information that can be discovered from:
 
@@ -89,7 +89,7 @@ Default if you do not care: 10 first-customer/design-partner prospects, save onl
 ## Example User Invocation
 
 ```text
-/outreach Do outreach for Luys: https://luys.dev. This is my API key: <key>.
+$outreach Do outreach for Luys: https://luys.dev. This is my API key: <key>.
 ```
 
 ## Minimal cURL Pattern
