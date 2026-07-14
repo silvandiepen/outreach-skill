@@ -1,0 +1,17 @@
+{
+  "name": "outreach-skill",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Installer for the Outreach Codex skill.",
+  "type": "module",
+  "bin": {
+    "outreach-skill": "./bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "outreach",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT"
+}

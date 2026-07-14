@@ -6,6 +6,18 @@ It is standalone and does not depend on any other skill. It includes first-custo
 
 ## Install
 
+With npx from GitHub:
+
+```bash
+npx github:silvandiepen/outreach-skill
+```
+
+Replace an existing install:
+
+```bash
+npx github:silvandiepen/outreach-skill -- --force
+```
+
 Install into your Codex skills directory:
 
 ```bash
