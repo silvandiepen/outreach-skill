@@ -26,9 +26,9 @@ curl -X POST "$BASE/projects" \
   -H "Authorization: Bearer $OUTREACH_API_KEY" \
   -H "content-type: application/json" \
   -d '{
-    "name": "Luys",
-    "website": "https://luys.dev",
-    "oneLine": "Short positioning",
+    "name": "Example Product",
+    "website": "https://example.com",
+    "oneLine": "Short positioning for the product",
     "defaultFrom": "Sil from Hakobs <sil@hakobs.com>",
     "replyTo": "sil@hakobs.com",
     "status": "active"

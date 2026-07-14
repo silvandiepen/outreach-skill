@@ -1,6 +1,6 @@
 ---
 name: outreach
-description: "Use when the user invokes $outreach or asks Codex to manage the Outreach platform at outreach.hakobs.com: create or update outreach projects, research/investigate prospects, find evidence-backed first customers, add prospects, log sources and findings, create plans, create reviewable drafts, update outreach statuses, or use an Outreach API key supplied by the user. This skill does not contain secrets; require the user to provide the API key or set OUTREACH_API_KEY at runtime."
+description: "Use when the user invokes $outreach or asks Codex to run evidence-backed outreach work in the Outreach platform at outreach.hakobs.com. Supports project setup, project discovery from a website/repo/local folder, prospect research, public contact discovery, deduplication, investigation logging, fit scoring, plans, ready-to-send review drafts, and outreach status updates through a user-supplied Outreach API key. This skill contains no secrets; require the user to provide the API key or set OUTREACH_API_KEY at runtime."
 ---
 
 # Outreach
@@ -83,7 +83,7 @@ When a duplicate is found:
 
 ## Startup Clarification
 
-When the user says something broad like `$outreach Do outreach for Luys` and provides a website, repo, or local folder, first infer what you can, then ask only for missing choices that materially affect what gets written to Outreach.
+When the user says something broad like `$outreach Do outreach for this product` and provides a website, repo, or local folder, first infer what you can, then ask only for missing choices that materially affect what gets written to Outreach.
 
 Do not ask for information that can be discovered from:
 
@@ -120,7 +120,7 @@ Use this default if the user does not answer and reasonable progress is possible
 Example clarification:
 
 ```text
-I found or can create the Luys project. Before I write records into Outreach, confirm:
+I found or can create the project. Before I write records into Outreach, confirm:
 1. Target: first customers/design partners, press, or another audience?
 2. Save policy: only high-confidence prospects, or also save weak leads as notes?
 3. Output: investigations only, or investigations plus reviewable drafts?
@@ -135,7 +135,7 @@ Default if you do not care: 10 first-customer/design-partner prospects, save onl
 ## Example User Invocation
 
 ```text
-$outreach Do outreach for Luys: https://luys.dev. This is my API key: <key>.
+$outreach Do outreach for this product: https://example.com. This is my API key: <key>.
 ```
 
 ## Minimal cURL Pattern

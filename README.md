@@ -1,6 +1,6 @@
 # Outreach Skill
 
-Codex skill for managing projects, investigations, prospects, plans, and drafts in the Outreach app at `https://outreach.hakobs.com`.
+Codex skill for running evidence-backed outreach work in the Outreach app at `https://outreach.hakobs.com`.
 
 It is standalone and does not depend on any other skill. It includes first-customer research guidance for evidence-backed prospect discovery from public signals.
 
@@ -39,8 +39,8 @@ Restart Codex after installing.
 ## Usage
 
 ```text
-$outreach Do investigations for Luys. Here is my Outreach API key: <key>.
-Find 20 high-fit prospects, log investigations and sources, create draft outreach, but do not send.
+$outreach Do outreach for this product: https://example.com. Here is my Outreach API key: <key>.
+Find 20 high-fit prospects, log investigations and sources, discover public contact paths, create ready-to-send review drafts, but do not send.
 ```
 
 The skill never stores API keys. Provide the key per task or set `OUTREACH_API_KEY` in the runtime environment.

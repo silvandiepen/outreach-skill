@@ -2,7 +2,7 @@
   "name": "outreach-skill",
   "version": "0.1.3",
   "private": false,
-  "description": "Installer for the Outreach Codex skill.",
+  "description": "Install the Outreach Codex skill for evidence-backed prospect research and outreach drafts.",
   "type": "module",
   "bin": {
     "outreach-skill": "bin/install.mjs"
