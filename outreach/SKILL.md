@@ -21,7 +21,7 @@ Never invent, store, print, or commit API keys. The user must provide the key in
 - Treat prospects as hypotheses based on public signals, not confirmed customers.
 - Create ready-to-send, reviewable drafts by default. Do not send email unless the user explicitly says to send.
 - Keep statuses current: `new`, `researched`, `needs_approval`, `sent`, `follow_up_due`, `no_response`.
-- Use `sil@hakobs.com` identity only through existing project settings/templates; do not ask for Resend or Cloudflare credentials.
+- Use the sender identity from existing project settings/templates. If creating a project and no sender is known, ask for `defaultFrom` and `replyTo`; do not ask for email-provider credentials.
 
 ## Standard Workflow
 

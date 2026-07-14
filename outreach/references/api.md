@@ -29,8 +29,8 @@ curl -X POST "$BASE/projects" \
     "name": "Example Product",
     "website": "https://example.com",
     "oneLine": "Short positioning for the product",
-    "defaultFrom": "Sil from Hakobs <sil@hakobs.com>",
-    "replyTo": "sil@hakobs.com",
+    "defaultFrom": "Your Name <you@example.com>",
+    "replyTo": "you@example.com",
     "status": "active"
   }'
 ```
