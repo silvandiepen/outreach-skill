@@ -1,0 +1,4 @@
+interface:
+  display_name: "Outreach"
+  short_description: "Manage Outreach projects via API"
+  default_prompt: "Use $outreach to investigate prospects for this project; I will provide the Outreach API key."
