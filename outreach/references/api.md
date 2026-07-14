@@ -42,6 +42,8 @@ GET /projects/:projectId
 PUT /projects/:projectId
 ```
 
+Before creating a project, list projects and match existing records by id, normalized name, website, repo, or local folder identity.
+
 ## Prospects
 
 ```text
@@ -74,6 +76,16 @@ curl -X POST "$BASE/projects/$PROJECT_ID/prospects" \
 
 Useful statuses: `new`, `researched`, `needs_approval`, `sent`, `follow_up_due`, `no_response`.
 
+Before creating prospects, fetch all existing prospects and build a dedupe map:
+
+- canonical URL/domain
+- lowercased contact
+- normalized name
+- name + platform/type
+- organization/publication/person source identity
+
+If a match exists, call `PUT /projects/:projectId/prospects/:prospectId` with merged fields instead of `POST`.
+
 ## Investigations
 
 Use investigations to log research and sources against a prospect.
@@ -99,6 +111,8 @@ curl -X POST "$BASE/projects/$PROJECT_ID/prospects/$PROSPECT_ID/investigations" 
 
 If `discoveredContact` is supplied, Outreach updates the prospect contact and can move a `new` prospect toward researched state. Put contact source, channel type, confidence, and caveats in `findings`, `sources`, and prospect `notes`.
 
+Before creating an investigation, fetch existing investigations for that prospect when available and avoid duplicate source URLs or materially identical summaries.
+
 ## Plans
 
 ```text
@@ -110,6 +124,8 @@ PUT /projects/:projectId/plans/:planId/steps/:stepId
 ```
 
 Plan step types: `research`, `draft`, `send`, `follow_up`, `note`.
+
+Before creating a plan, list active plans and update/extend an equivalent plan with the same project/prospect scope and goal.
 
 ## Drafts
 
@@ -135,6 +151,8 @@ curl -X POST "$BASE/projects/$PROJECT_ID/drafts" \
 ```
 
 Do not call `/drafts/:draftId/send` unless the user explicitly authorizes sending.
+
+Before creating a draft, list drafts and avoid duplicate proposed/approved drafts for the same prospect, template, subject, or angle. Update the existing draft when the new version is materially better.
 
 Legacy endpoints exist:
 

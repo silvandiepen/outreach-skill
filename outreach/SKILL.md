@@ -13,6 +13,7 @@ Never invent, store, print, or commit API keys. The user must provide the key in
 
 - Use the API for structured work and the website for visual checks.
 - Check whether the project already exists before creating it.
+- With an API key, inspect existing project records before creating anything; avoid duplicate projects, prospects, investigations, plans, and drafts.
 - Log research in Outreach, not only in private notes.
 - For investigations, browse current public sources and record URLs.
 - Treat contact discovery as part of investigations: find a respectful public/professional contact path and log the source.
@@ -29,16 +30,56 @@ Never invent, store, print, or commit API keys. The user must provide the key in
 3. List projects. Match by id, name, website, repo, local folder name, or user-provided target.
 4. If no project exists and the user asked to set up one, create it only after enough product context is known.
 5. Inspect project prospects, templates, plans, drafts, events, settings, inbound emails, and integrations as needed.
-6. Run the startup clarification checklist below when logging/saving behavior is not already clear.
-7. Define the ICP, adjacent ICP, positive signals, disqualifiers, pain triggers, and timing triggers.
-8. Extract the project philosophy: positioning, values, tone, what the project refuses to do, and the best reason a prospect should care.
-9. Research prospects with current public sources. Read `references/first-customer-research.md` before deep prospect discovery.
-10. For every meaningful finding, add an investigation with summary, findings, sources, discovered contact if found, and contact confidence.
-11. Prefer direct professional email when it is publicly listed for outreach. If not found, use role inbox, contact form, public social profile, or other respectful channel and record the limitation.
-12. Add or update prospects with contact info, fit score, why-fit, angle, ask, notes, and status.
-13. Create a plan when the work is multi-step or the user asked an agent to run a campaign.
-14. Create ready-to-send drafts using project philosophy, prospect details, and cited investigation evidence. Use persisted draft endpoints unless the user explicitly authorizes direct send.
-15. End with a concise report: project id, prospects added/updated, contacts found, investigations logged, drafts created, statuses changed, blockers.
+6. Build a dedupe map from existing records before writing new data. See `references/api.md` and `references/first-customer-research.md`.
+7. Run the startup clarification checklist below when logging/saving behavior is not already clear.
+8. Define the ICP, adjacent ICP, positive signals, disqualifiers, pain triggers, and timing triggers.
+9. Extract the project philosophy: positioning, values, tone, what the project refuses to do, and the best reason a prospect should care.
+10. Research prospects with current public sources. Read `references/first-customer-research.md` before deep prospect discovery.
+11. For every meaningful finding, add or update an investigation with summary, findings, sources, discovered contact if found, and contact confidence.
+12. Prefer direct professional email when it is publicly listed for outreach. If not found, use role inbox, contact form, public social profile, or other respectful channel and record the limitation.
+13. Add or update prospects with contact info, fit score, why-fit, angle, ask, notes, and status.
+14. Create a plan when the work is multi-step or the user asked an agent to run a campaign and no equivalent active plan exists.
+15. Create ready-to-send drafts using project philosophy, prospect details, and cited investigation evidence. Do not create a duplicate draft for the same prospect/angle. Use persisted draft endpoints unless the user explicitly authorizes direct send.
+16. End with a concise report: project id, prospects added/updated, contacts found, investigations logged, drafts created, statuses changed, skipped duplicates, blockers.
+
+## Dedupe Rules
+
+Before creating data, fetch existing records for the project and prefer update/merge over create.
+
+Project match:
+
+- same id
+- same normalized name
+- same website/repo/local-folder identity
+
+Prospect match:
+
+- same canonical URL/domain
+- same contact value
+- same normalized name plus same platform/type
+- same organization/publication/person discovered from the same source
+
+Investigation match:
+
+- same prospect and same source URL
+- same prospect and materially same summary/findings
+
+Draft match:
+
+- same prospect and same template/subject/angle
+- existing `proposed` or `approved` draft should usually be updated, not duplicated
+
+Plan match:
+
+- same project/prospect scope and same goal
+- active `proposed` or `approved` plan should be updated or extended, not duplicated
+
+When a duplicate is found:
+
+- update missing fields, better contact info, stronger fit score, new sources, and notes
+- append new evidence instead of overwriting useful prior notes
+- record in the final report that the record was updated/skipped as duplicate
+- do not create a new prospect just because the contact changed; update the existing prospect contact and investigation
 
 ## Startup Clarification
 

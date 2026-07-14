@@ -1,6 +1,6 @@
 {
   "name": "outreach-skill",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": false,
   "description": "Installer for the Outreach Codex skill.",
   "type": "module",

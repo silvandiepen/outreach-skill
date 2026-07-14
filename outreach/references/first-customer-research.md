@@ -142,11 +142,27 @@ Ready-to-send draft checklist:
 
 For each accepted prospect:
 
-1. Create/update the prospect.
-2. Log at least one investigation with sources and contact discovery result.
-3. Set status to `researched` when evidence is strong and contact/channel is known.
-4. Create a reviewable ready-to-send draft if requested or if default draft policy applies.
-5. Record blockers when evidence or contact path is weak.
+1. Check existing project records first; update/merge instead of creating duplicates.
+2. Create/update the prospect.
+3. Log or update at least one investigation with sources and contact discovery result.
+4. Set status to `researched` when evidence is strong and contact/channel is known.
+5. Create or update a reviewable ready-to-send draft if requested or if default draft policy applies.
+6. Record blockers when evidence or contact path is weak.
+
+## Duplicate Avoidance
+
+With an Outreach API key, always check what already exists for the project before saving.
+
+Do not create duplicate prospects when:
+
+- the URL/domain already exists
+- the contact value already exists
+- the same person/publication/company is already present under a slightly different name
+- the same public source already generated an investigation
+
+Do not create duplicate drafts when there is already a proposed or approved draft for the same prospect and angle. Update the existing draft if the new evidence improves it.
+
+When uncertain, prefer updating notes/investigations and mention the ambiguity in the final report.
 
 ## What To Save
 
@@ -172,5 +188,6 @@ End with:
 5. strongest prospect and why
 6. repeated pain patterns
 7. drafts created
-8. skipped weak leads and why
-9. next recommended actions
+8. duplicates updated/skipped
+9. skipped weak leads and why
+10. next recommended actions
