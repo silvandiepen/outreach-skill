@@ -1,6 +1,6 @@
 ---
 name: outreach
-description: "Use when the user invokes $outreach or asks Codex to run evidence-backed outreach work in the Outreach platform at outreach.hakobs.com. Supports project setup, project discovery from a website/repo/local folder, prospect research, public contact discovery, deduplication, investigation logging, fit scoring, plans, ready-to-send review drafts, and outreach status updates through a user-supplied Outreach API key. This skill contains no secrets; require the user to provide the API key or set OUTREACH_API_KEY at runtime."
+description: "Use when the user invokes $outreach or asks Codex to run evidence-backed outreach work or build Outreach reports in the Outreach platform at outreach.hakobs.com. Supports read-only project reports, project setup, project discovery from a website/repo/local folder, prospect research, public contact discovery, deduplication, investigation logging, fit scoring, plans, ready-to-send review drafts, and outreach status updates through a user-supplied Outreach API key. This skill contains no secrets; require the user to provide the API key or set OUTREACH_API_KEY at runtime."
 ---
 
 # Outreach
@@ -12,6 +12,8 @@ Never invent, store, print, or commit API keys. The user must provide the key in
 ## Operating Rules
 
 - Use the API for structured work and the website for visual checks.
+- If the user asks for a report, audit, summary, export, or "full report with data", use report-only mode unless they explicitly ask you to write changes.
+- Report-only mode must not create, update, delete, approve, regenerate, or send records unless the user separately authorizes that action.
 - Check whether the project already exists before creating it.
 - With an API key, inspect existing project records before creating anything; avoid duplicate projects, prospects, investigations, plans, and drafts.
 - Log research in Outreach, not only in private notes.
@@ -26,21 +28,36 @@ Never invent, store, print, or commit API keys. The user must provide the key in
 ## Standard Workflow
 
 1. Extract the API key and task scope from the user request. If no key is supplied and `OUTREACH_API_KEY` is absent, ask for it.
-2. Resolve product context from any supplied website, repo URL, or local folder. Inspect public website/repo/local docs before asking questions.
-3. List projects. Match by id, name, website, repo, local folder name, or user-provided target.
-4. If no project exists and the user asked to set up one, create it only after enough product context is known.
-5. Inspect project prospects, templates, plans, drafts, events, settings, inbound emails, and integrations as needed.
-6. Build a dedupe map from existing records before writing new data. See `references/api.md` and `references/first-customer-research.md`.
-7. Run the startup clarification checklist below when logging/saving behavior is not already clear.
-8. Define the ICP, adjacent ICP, positive signals, disqualifiers, pain triggers, and timing triggers.
-9. Extract the project philosophy: positioning, values, tone, what the project refuses to do, and the best reason a prospect should care.
-10. Research prospects with current public sources. Read `references/first-customer-research.md` before deep prospect discovery.
-11. For every meaningful finding, add or update an investigation with summary, findings, sources, discovered contact if found, and contact confidence.
-12. Prefer direct professional email when it is publicly listed for outreach. If not found, use role inbox, contact form, public social profile, or other respectful channel and record the limitation.
-13. Add or update prospects with contact info, fit score, why-fit, angle, ask, notes, and status.
-14. Create a plan when the work is multi-step or the user asked an agent to run a campaign and no equivalent active plan exists.
-15. Create ready-to-send drafts using project philosophy, prospect details, and cited investigation evidence. Do not create a duplicate draft for the same prospect/angle. Use persisted draft endpoints unless the user explicitly authorizes direct send.
-16. End with a concise report: project id, prospects added/updated, contacts found, investigations logged, drafts created, statuses changed, skipped duplicates, blockers.
+2. If the request is report-like, run Report Mode below and stop there unless the user explicitly asks for follow-up writes.
+3. Resolve product context from any supplied website, repo URL, or local folder. Inspect public website/repo/local docs before asking questions.
+4. List projects. Match by id, name, website, repo, local folder name, or user-provided target.
+5. If no project exists and the user asked to set up one, create it only after enough product context is known.
+6. Inspect project prospects, documents, templates, plans, drafts, events, settings, inbound emails, and integrations as needed.
+7. Build a dedupe map from existing records before writing new data. See `references/api.md` and `references/first-customer-research.md`.
+8. Run the startup clarification checklist below when logging/saving behavior is not already clear.
+9. Define the ICP, adjacent ICP, positive signals, disqualifiers, pain triggers, and timing triggers.
+10. Extract the project philosophy: positioning, values, tone, what the project refuses to do, and the best reason a prospect should care.
+11. Research prospects with current public sources. Read `references/first-customer-research.md` before deep prospect discovery.
+12. For every meaningful finding, add or update an investigation with summary, findings, sources, discovered contact if found, and contact confidence.
+13. Prefer direct professional email when it is publicly listed for outreach. If not found, use role inbox, contact form, public social profile, or other respectful channel and record the limitation.
+14. Add or update prospects with contact info, category, fit score, why-fit, angle, ask, notes, and status.
+15. Create a plan when the work is multi-step or the user asked an agent to run a campaign and no equivalent active plan exists.
+16. Create ready-to-send drafts using project philosophy, prospect details, cited investigation evidence, project documents, and settings. Do not create a duplicate draft for the same prospect/angle. Use persisted draft endpoints unless the user explicitly authorizes direct send.
+17. End with a concise report: project id, prospects added/updated, contacts found, investigations logged, drafts created, statuses changed, skipped duplicates, blockers.
+
+## Report Mode
+
+Use this when the user asks to build a report, audit, summarize, export, inspect status, show pipeline data, or produce a full report with data.
+
+1. Resolve the report scope: project id/name/website/repo, timeframe if supplied, and whether to use Outreach data only or include public enrichment.
+2. Read `references/reporting.md` and `references/api.md`.
+3. Fetch projects and match the target before doing project-specific calls.
+4. Collect available data: project details, account settings, project settings, documents, prospects, investigations per relevant prospect, templates, plans and steps, drafts, events, inbound emails, and integrations.
+5. Normalize and deduplicate records in memory. Distinguish Outreach data from external research.
+6. If public enrichment is requested or necessary for context, browse current public sources and cite URLs in the report. Do not add those findings to Outreach unless asked.
+7. Produce a structured report with executive summary, project snapshot, ICP/philosophy, pipeline by status/category, highest-fit prospects, contact coverage, investigation/source coverage, draft/review/send status, inbound replies, integrations, risks/blockers, recommended next actions, and appendix tables.
+8. Include "last generated" with date/time and data caveats: missing contact paths, stale investigations, bounced/failed delivery status, unprocessed inbox items, or records without sources.
+9. Ask before saving the report back anywhere. If the user asks to save it, clarify destination: final answer, local markdown file, project document, event/note, or plan.
 
 ## Dedupe Rules
 
@@ -131,11 +148,13 @@ Default if you do not care: 10 first-customer/design-partner prospects, save onl
 
 - Read `references/api.md` when making API calls, writing a handoff prompt, or debugging an Outreach workflow.
 - Read `references/first-customer-research.md` when asked to find prospects, design partners, early adopters, first customers, public pain signals, or investigation targets.
+- Read `references/reporting.md` when asked to build a report, audit, summary, export, or data view from Outreach.
 
 ## Example User Invocation
 
 ```text
 $outreach Do outreach for this product: https://example.com. This is my API key: <key>.
+$outreach Build a full report for this project using Outreach data only. This is my API key: <key>.
 ```
 
 ## Minimal cURL Pattern

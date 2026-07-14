@@ -1,8 +1,8 @@
 # Outreach Skill
 
-Codex skill for running evidence-backed outreach work in the Outreach app at `https://outreach.hakobs.com`.
+Codex skill for running evidence-backed outreach work and read-only reporting in the Outreach app at `https://outreach.hakobs.com`.
 
-It is standalone and does not depend on any other skill. It includes first-customer research guidance for evidence-backed prospect discovery from public signals.
+It is standalone and does not depend on any other skill. It includes first-customer research guidance for evidence-backed prospect discovery from public signals, plus a reporting mode for turning Outreach data into a structured project report.
 
 ## Install
 
@@ -23,7 +23,7 @@ Install into your Codex skills directory:
 ```bash
 git clone https://github.com/silvandiepen/outreach-skill.git
 mkdir -p ~/.codex/skills
-cp -R outreach-skill$outreach ~/.codex/skills$outreach
+cp -R outreach-skill/outreach ~/.codex/skills/outreach
 ```
 
 Or, with the Codex skill installer:
@@ -43,6 +43,10 @@ $outreach Do outreach for this product: https://example.com. Here is my Outreach
 Find 20 high-fit prospects, log investigations and sources, discover public contact paths, create ready-to-send review drafts, but do not send.
 ```
 
+```text
+$outreach Build a full report for this project using Outreach data only. Here is my Outreach API key: <key>.
+```
+
 The skill never stores API keys. Provide the key per task or set `OUTREACH_API_KEY` in the runtime environment.
 
 Codex skills are invoked with `$outreach`. A slash command like `/outreach` only works in clients that explicitly map slash commands to skills.
@@ -53,4 +57,5 @@ Codex skills are invoked with `$outreach`. A slash command like `/outreach` only
 - No private enrichment or sensitive personal data.
 - Drafts are reviewable by default.
 - No email sending unless explicitly authorized.
+- Report mode is read-only unless explicitly authorized to write.
 - Outreach remains the system of record for investigations, sources, drafts, statuses, and plans.

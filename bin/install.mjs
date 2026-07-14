@@ -51,6 +51,7 @@ cpSync(source, target, { recursive: true });
 console.log(`Installed Outreach skill to ${target}`);
 console.log('Restart Codex or start a new session, then use:');
 console.log('$outreach Do outreach for this product: https://example.com. This is my API key: XXXX.');
+console.log('$outreach Build a full report for this project using Outreach data only. This is my API key: XXXX.');
 
 function resolveSkillRoot() {
   if (process.env.OUTREACH_SKILL_DEST) return process.env.OUTREACH_SKILL_DEST;

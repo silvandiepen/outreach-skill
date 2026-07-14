@@ -1,4 +1,4 @@
 interface:
   display_name: "Outreach"
-  short_description: "Research prospects and draft outreach"
-  default_prompt: "Use $outreach to research prospects for this product; I will provide the Outreach API key."
+  short_description: "Report, research, and draft outreach"
+  default_prompt: "Use $outreach to build a report or research prospects for this project; I will provide the Outreach API key."
